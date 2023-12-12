@@ -31,7 +31,7 @@ async function handleSelectedText(text) {
 
 async function convertTextToSpeech(text, language) {
   const speaker = generateSpeaker(language);
-  const ssmlText = "<speak><prosody rate='100%'>" + text + "</prosody></speak>";
+  const ssmlText = "<speak><prosody rate='110%'>" + text + "</prosody></speak>";
   try {
     const params = {
       OutputFormat: "mp3",
@@ -43,18 +43,20 @@ async function convertTextToSpeech(text, language) {
       Engine: "neural",
     };
 
-    const res = await fetch(
-      `${AWS_MIDDLEWARE_URL}/api/analyze`,
-      requestOptions
-    );
+    const res = await fetch(`${AWS_MIDDLEWARE_URL}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-    const message = await res.json();
+    const data = await res.json();
 
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...message.data,
+        ...data.message,
         // Add any other headers if required by your API
       },
       body: JSON.stringify(params),

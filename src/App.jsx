@@ -1,33 +1,18 @@
 import "./App.css";
-
 function App() {
-  // const colour = "red";
-
-  // async function startReading() {
-  //   const [tab] = await chrome.tabs.query({ active: true });
-  //   chrome.scripting.executeScript({
-  //     target: { tabId: tab.id },
-  //     args: [colour],
-  //     func: () => {
-  //       const text = window.getSelection().toString();
-  //       alert(text);
-  //     },
-  //   });
-  // }
-
   return (
-    <>
-      <h1>Webpage Audio Reader</h1>
+    <div>
+      <img className="logo" src="icon.png" alt="Logo" />
+      <h2>Webpage Audio Reader</h2>
       <div>
-        Experience effortless webpage narration with our Chrome extension!
-        Transform text on any webpage into an engaging audio experience, perfect
-        for auditory learners. Listen to content in a natural flow, making
-        learning and absorbing information more accessible and enjoyable.
+        Convert text content on webpages into speech, enabling you to listen
+        to the text content of a website rather than reading it.
       </div>
       <div className="card">
-        To start reading, select text of  choice and right click on the screen, then click on Webpage Reader - Start reading
+        To start reading, select text of choice and right click on the screen,
+        then click on Webpage Audio - Start reading
       </div>
-    </>
+    </div>
   );
 }
 
